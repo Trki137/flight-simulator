@@ -1,1 +1,1 @@
-# flightSimulator
+# flight-simulator
