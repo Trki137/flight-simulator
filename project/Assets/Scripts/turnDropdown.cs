@@ -7,6 +7,9 @@ public class turnDropdown : MonoBehaviour
 {
     Dropdown dropdown;
     private int dropdownIndex;
+    public static int num=0;
+    public static string turn;
+
     void Start()
     {
 
@@ -29,9 +32,13 @@ public class turnDropdown : MonoBehaviour
 
         dropdownIndex = this.dropdown.value;
 
-        int num = firstNumberDropdown.dropdownIndex * 100 + (secondNumberDropdown.dropdownIndex + 1) * 10;
-        string turn = dropdownIndex == 0 ? "Left" : "Right";
+        num = (firstNumberDropdown.dropdownIndex-1) * 100 + (secondNumberDropdown.dropdownIndex) *10;
 
-        Debug.Log("Turn for "+ num + "deg to "+ turn);
+       // turn = dropdownIndex == 1 ? "Left" : "Right";
+        if(dropdownIndex == 1) turn = "Left";
+        else if(dropdownIndex==2) turn = "Right";
+        
+    if(dropdownIndex>0) {
+        Debug.Log("Turn for "+ num + "deg to "+ turn);}
      }
 }

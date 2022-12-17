@@ -4,70 +4,96 @@ using UnityEngine;
 
 public class ControllableAirplane : MonoBehaviour
 {
-    private float speed = 0.01f;
+    private float speed = 0.005f;
 
     private Rigidbody2D myBody;
 
     private Transform[] navigationPoint = new Transform[2];
     private Transform currentTarget;
 
-    private float x;
-    private float y;
     private int numOfColides;
+    private int numOfNavPoints;
+
+    public GameObject avion;
+
+    public GameObject canvas;
 
     private const string NAVIGATION_POINT1 = "navigationPoint1";
+    private const string NAVIGATION_POINT = "navTocka";
     private const string NAVIGATION_POINT2 = "navigationPoint2";
-    private const string AIRPLANE_TAG = "cAirplane";
-
+    private const string AIRPLANE_USER = "cAirplane";
+    private const string AIRPLANE_AI = "AirplaneAI";
 
     // Start is called before the first frame update
     void Start()
     {
-        myBody = GetComponent<Rigidbody2D>();
-
-   
-
-        navigationPoint[0] = currentTarget = GameObject.FindWithTag(NAVIGATION_POINT1).transform;
-        navigationPoint[1] = GameObject.FindWithTag(NAVIGATION_POINT2).transform;
-
-        
-        x = currentTarget.position.x - myBody.position.x;
-        y = currentTarget.position.y - myBody.position.y;
-
-        numOfColides = 0;
+canvas.SetActive(false);
     }
+
+
     // Update is called once per frame
+
+    void FixedUpdate() {
+    	avion.transform.position+=transform.up*speed;
+    }
+
     void Update()
     {
-        Vector3 v = new Vector3(x, y, 0);
-        myBody.transform.Translate(v * speed * Time.deltaTime);
+            if(numOfNavPoints==5) {
+                Application.Quit();
+                UnityEditor.EditorApplication.isPlaying = false;
+            }
     }
 
     private void OnMouseDown()
     {
-        Debug.Log("Sprite Clicked");
+        if(canvas.activeInHierarchy==true)
+             {
+                //Debug.Log("Zatvori izbornik"); 
+                canvas.SetActive(false);
+             } 
+        else if(canvas.activeInHierarchy==false) 
+             {
+                //Debug.Log("Otvori izbornik"); 
+                canvas.SetActive(true);
+            }
     }
+
+
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(NAVIGATION_POINT1))
+        if (collision.gameObject.CompareTag(NAVIGATION_POINT))
         {
-            currentTarget = navigationPoint[1];
-            x = currentTarget.position.x - myBody.position.x;
-            y = currentTarget.position.y - myBody.position.y;
+            GameObject T = collision.transform.GetChild(0).gameObject;
+            TextMesh tekst = T.GetComponent<TextMesh>();
+
+            numOfNavPoints++;
+            Debug.Log("Prolaz kroz nav tocku "+tekst.text);
+            Debug.Log("Prodeni broj tocaka "+numOfNavPoints);
+            gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 0);
         }
 
-        if (collision.gameObject.CompareTag(NAVIGATION_POINT2)) {
-            x = y = 0;
-            Debug.Log("Simulation ended");
-            Debug.Log(numOfColides);
+                if (collision.gameObject.CompareTag(AIRPLANE_AI))
+        {
+
+            GameObject T = collision.transform.GetChild(0).gameObject;
+            TextMesh tekst = T.GetComponent<TextMesh>();
+
+            Debug.Log("Sudar sa "+tekst.text);
+            gameObject.GetComponent<Renderer>().material.color = new Color(1,0,0);
+
+                                    numOfColides++;
+            Debug.Log("Trenutni broj sudara "+numOfColides);
         }
 
-        if (collision.gameObject.CompareTag(AIRPLANE_TAG)) {
-            Debug.Log("Airplanes collide");
-            numOfColides++;
-        }
+    }
 
+        void OnTriggerExit2D(Collider2D collision)
+    {
+        gameObject.GetComponent<Renderer>().material.color = new Color(1, 1, 1);
     }
 
 }
