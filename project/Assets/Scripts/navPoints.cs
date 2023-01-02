@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class navPoints : MonoBehaviour
 {
+    [SerializeField]
+    private WriteData writeLog;
 
 public int brojNavTocaka;
 public GameObject prefab;
+
+private string dateTime = System.DateTime.Now.ToString("yyyy.dd.mm-HH:mm:ss:fff");
 
 private Vector2 pozicija;
 
@@ -14,6 +18,10 @@ private Vector2 pozicija;
     void Start()
     {
    stvoriNavTocke();
+
+            string log = string.Format("[{0}] Screen height is {1} pixels\n[{2}] Screen width is {3} pixels", dateTime,Screen.height,dateTime,Screen.width);
+            writeLog.writeLog(log);
+
     }
 
     // Update is called once per frame
@@ -49,6 +57,9 @@ private Vector2 pozicija;
             GameObject T = tocka.transform.GetChild(0).gameObject;
             TextMesh tekst = T.GetComponent<TextMesh>();
             tekst.text+=i.ToString();
+
+            string log = string.Format("[{0}] Naviagtion point {1} is at position ({2},{3})", dateTime ,i + 1, pozicija.x, pozicija.y);
+            writeLog.writeLog(log);
 
          }  
     }

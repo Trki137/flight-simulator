@@ -1,0 +1,2 @@
+navPoints=5
+controllableAirplains=5

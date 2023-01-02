@@ -24,10 +24,28 @@ public class ControllableAirplane : MonoBehaviour
     private const string AIRPLANE_USER = "cAirplane";
     private const string AIRPLANE_AI = "AirplaneAI";
 
+    private WriteData myObject;
+
+    private ColiderCounter coliderCounter;
+
+    private ReadConfigFile configFile;
+
+
     // Start is called before the first frame update
     void Start()
     {
-canvas.SetActive(false);
+
+        GameObject G = GameObject.Find("WriteData");
+        myObject = G.GetComponent<WriteData>();
+        
+        G = GameObject.Find("ColliderCounter");
+        coliderCounter = G.GetComponent<ColiderCounter>();
+
+        G = GameObject.Find("Config");
+        configFile = G.GetComponent<ReadConfigFile>();
+
+        Debug.Log(myObject);
+        canvas.SetActive(false);
     }
 
 
@@ -39,14 +57,29 @@ canvas.SetActive(false);
 
     void Update()
     {
-            if(numOfNavPoints==5) {
-                Application.Quit();
-                UnityEditor.EditorApplication.isPlaying = false;
-            }
+
+        if(numOfNavPoints == configFile.getNumOfNavPoints()){
+            Destroy(avion);
+            coliderCounter.increaseDestroyedAirplanes();
+        }
+
+        if(coliderCounter.getDestroyedAirplanes() == configFile.getNumOfControllablePlains()) {
+            Application.Quit();
+            string dateTime = System.DateTime.Now.ToString("yyyy.dd.mm-HH:mm:ss:fff");
+            string log = string.Format("[{0}] Simulation finished, total number of collides is {1} ", dateTime, coliderCounter.getCounter());
+            myObject.writeLog(log);
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
     }
 
     private void OnMouseDown()
-    {
+    {       
+            GameObject T = avion.transform.GetChild(0).gameObject;
+            TextMesh tekst = T.GetComponent<TextMesh>();
+            string dateTime = System.DateTime.Now.ToString("yyyy.dd.mm-HH:mm:ss:fff");
+            string log = string.Format("[{0}] You clicked on {1}", dateTime,tekst.text);
+            myObject.writeLog(log);
+
         if(canvas.activeInHierarchy==true)
              {
                 //Debug.Log("Zatvori izbornik"); 
@@ -82,11 +115,24 @@ canvas.SetActive(false);
             GameObject T = collision.transform.GetChild(0).gameObject;
             TextMesh tekst = T.GetComponent<TextMesh>();
 
-            Debug.Log("Sudar sa "+tekst.text);
+          //  Debug.Log("Sudar sa "+tekst.text);
             gameObject.GetComponent<Renderer>().material.color = new Color(1,0,0);
 
-                                    numOfColides++;
-            Debug.Log("Trenutni broj sudara "+numOfColides);
+            coliderCounter.increaseCounter();
+            //Debug.Log("Trenutni broj sudara "+numOfColides);
+        }
+
+                if (collision.gameObject.CompareTag(AIRPLANE_USER))
+        {
+
+            GameObject T = collision.transform.GetChild(0).gameObject;
+            TextMesh tekst = T.GetComponent<TextMesh>();
+
+           // Debug.Log("Sudar sa "+tekst.text);
+            gameObject.GetComponent<Renderer>().material.color = new Color(1,0,0);
+
+            coliderCounter.increaseCounter();
+           // Debug.Log("Trenutni broj sudara "+numOfColides);
         }
 
     }
