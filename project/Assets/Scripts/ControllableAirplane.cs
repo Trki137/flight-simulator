@@ -30,10 +30,17 @@ public class ControllableAirplane : MonoBehaviour
 
     private ReadConfigFile configFile;
 
+    private float anglesTravelled = 0f;
+
+    private bool travel = true;
+
+    private const float turnSpeed = 12.0f;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        myBody = avion.GetComponent<Rigidbody2D>();
 
         GameObject G = GameObject.Find("WriteData");
         myObject = G.GetComponent<WriteData>();
@@ -69,6 +76,58 @@ public class ControllableAirplane : MonoBehaviour
             string log = string.Format("[{0}] Simulation finished, total number of collides is {1} ", dateTime, coliderCounter.getCounter());
             myObject.writeLog(log);
             UnityEditor.EditorApplication.isPlaying = false;
+        }
+
+        if (turnDropdown.changed)
+        {
+            travel = true;
+        }
+
+
+        if (!travel)
+        {
+
+            myBody.transform.Translate(Vector3.up * speed * Time.deltaTime);
+            return;
+        }
+        if (turnDropdown.num != 0)
+        {
+
+            if (turnDropdown.changed)
+            {
+                if (turnDropdown.turn == "Right")
+                {
+                    anglesTravelled += Time.deltaTime * turnSpeed;
+                    myBody.transform.localEulerAngles += new Vector3(0f, 0f, -Time.deltaTime * turnSpeed);
+                    myBody.transform.Translate(transform.up * speed * Time.deltaTime);
+
+                    //stariNum = turnDropdown.num;
+                }
+                else
+                {
+                    anglesTravelled += Time.deltaTime * turnSpeed;
+                    myBody.transform.localEulerAngles -= new Vector3(0f, 0f, -Time.deltaTime * turnSpeed);
+                    myBody.transform.Translate(transform.up * speed * Time.deltaTime);
+                }
+            }
+            else
+            {
+                myBody.transform.Translate(Vector3.up * speed * Time.deltaTime);
+            }
+
+            if (Mathf.Abs(anglesTravelled) > turnDropdown.num)
+            {
+                travel = false;
+                anglesTravelled = 0f;
+                myBody.transform.Translate(transform.up * speed * Time.deltaTime);
+                turnDropdown.changed = false;
+                turnDropdown.turn = "-";
+            }
+
+        }
+        else
+        {
+            myBody.transform.Translate(Vector3.up * speed * Time.deltaTime);
         }
     }
 

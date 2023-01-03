@@ -1,7 +1,8 @@
-[2023.02.19-20:19:08:018] Naviagtion point 1 is at position (4.124668,1.400921)
-[2023.02.19-20:19:08:018] Naviagtion point 2 is at position (0.9583073,-0.6323576)
-[2023.02.19-20:19:08:018] Naviagtion point 3 is at position (-4.750042,-0.3098423)
-[2023.02.19-20:19:08:018] Naviagtion point 4 is at position (-7.707049,2.201447)
-[2023.02.19-20:19:08:018] Naviagtion point 5 is at position (4.144659,1.922917)
-[2023.02.19-20:19:08:018] Screen height is 421 pixels
-[2023.02.19-20:19:08:018] Screen width is 906 pixels
+[2023.03.53-19:53:25:466] Naviagtion point 1 is at position (2.779458,3.263948)
+[2023.03.53-19:53:25:466] Naviagtion point 2 is at position (6.918786,-2.939143)
+[2023.03.53-19:53:25:466] Naviagtion point 3 is at position (-1.109719,-0.203037)
+[2023.03.53-19:53:25:466] Naviagtion point 4 is at position (-5.029182,2.488269)
+[2023.03.53-19:53:25:466] Naviagtion point 5 is at position (7.639745,2.232772)
+[2023.03.53-19:53:25:466] Screen height is 415 pixels
+[2023.03.53-19:53:25:466] Screen width is 906 pixels
+[2023.03.53-19:53:31:120] You clicked on HR 4263
