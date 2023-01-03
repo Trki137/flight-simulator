@@ -9,6 +9,7 @@ TagManager:
   - navigationPoint2
   - navTocka
   - AirplaneAI
+  - Dropdown
   layers:
   - Default
   - TransparentFX

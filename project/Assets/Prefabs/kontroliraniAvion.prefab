@@ -410,7 +410,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avion: {fileID: 588453582553493895}
   canvas: {fileID: 1893310938890675279}
-  writeLog: {fileID: 0}
 --- !u!96 &2149212276806334801
 TrailRenderer:
   serializedVersion: 2
@@ -764,7 +763,7 @@ GameObject:
   - component: {fileID: 105037085071225856}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Dropdown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

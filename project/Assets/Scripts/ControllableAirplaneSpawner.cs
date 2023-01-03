@@ -37,21 +37,28 @@ public class ControllableAirplaneSpawner : MonoBehaviour
     private void InstantianteAirplane(Vector3 position)
     {
 
-       GameObject avion = Instantiate(
+       GameObject airplane = Instantiate(
             airplanePrefab,
             position,
             Quaternion.FromToRotation(Vector3.up, (gameArea.transform.position - position)),
             gameObject.transform
          );
 
-            GameObject T = avion.transform.GetChild(0).gameObject;
-            TextMesh tekst = T.GetComponent<TextMesh>();
-            int oznaka = Random.Range(1000, 9999);
-            tekst.text="HR " + oznaka.ToString();
             
+        GameObject T = airplane.transform.GetChild(0).gameObject;    
+        TextMesh textMesh = T.GetComponent<TextMesh>();
+            
+        string airplaneName = "HR " + Random.Range(1000, 9999).ToString();
+
+        textMesh.text = airplaneName;
+
+        ControllableAirplane airplaneScript = airplane.GetComponent<ControllableAirplane>();
+        airplaneScript.name = airplaneName;
+        airplaneScript.setName(airplaneName);
 
 
-        
+
+
     }
 
 
