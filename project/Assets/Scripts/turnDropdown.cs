@@ -8,9 +8,9 @@ public class turnDropdown : MonoBehaviour
 {
     Dropdown dropdown;
     private int dropdownIndex;
-    public static int num = 0;
-    public static string turn;
-    public static bool changed = false;
+    public int num = 0;
+    public string turn;
+    public bool changed = false;
 
     void Start()
     {
@@ -63,5 +63,25 @@ public class turnDropdown : MonoBehaviour
 
             Debug.Log("Turn for " + num + "deg to " + turn);
         }
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setTurn(string turn) {
+        this.turn = turn;
+    }
+
+    public string getTurn() {
+        return turn;
+    }
+
+    public void setChanged(bool changed) {
+        this.changed = changed;
+    }
+
+    public bool getChanged() {
+        return changed;
     }
 }

@@ -26,15 +26,22 @@ public class ControllableAirplane : MonoBehaviour
 
     private ReadConfigFile configFile;
 
+    [SerializeField]
+    public turnDropdown dropdown;
+    
     private float anglesTravelled = 0f;
 
     private bool travel = true;
 
     private string airplaneName;
+
     void Start()
     {
         GameObject G = GameObject.Find(airplaneName);
         myBody = G.GetComponent<Rigidbody2D>();
+
+        Canvas c = myBody.GetComponent<Canvas>();
+        Debug.Log(c);
 
         G = GameObject.Find("WriteData");
         myObject = G.GetComponent<WriteData>();
@@ -58,7 +65,7 @@ public class ControllableAirplane : MonoBehaviour
     void Update()
     {
 
-        if (turnDropdown.changed)
+        if (dropdown.getChanged())
         {
             travel = true;
         }
@@ -70,12 +77,12 @@ public class ControllableAirplane : MonoBehaviour
             myBody.transform.Translate(Vector3.up * speed * Time.deltaTime);
             return;
         }
-        if (turnDropdown.num != 0)
+        if (dropdown.getNum() != 0)
         {
 
-            if (turnDropdown.changed)
+            if (dropdown.getChanged())
             {
-                if (turnDropdown.turn == "Right")
+                if (dropdown.getTurn() == "Right")
                 {
                     anglesTravelled += Time.deltaTime * turnSpeed;
                     myBody.transform.localEulerAngles += new Vector3(0f, 0f, -Time.deltaTime * turnSpeed);
@@ -95,13 +102,13 @@ public class ControllableAirplane : MonoBehaviour
                 myBody.transform.Translate(Vector3.up * speed * Time.deltaTime);
             }
 
-            if (Mathf.Abs(anglesTravelled) > turnDropdown.num)
+            if (Mathf.Abs(anglesTravelled) > dropdown.getNum())
             {
                 travel = false;
                 anglesTravelled = 0f;
                 myBody.transform.Translate(transform.up * speed * Time.deltaTime);
-                turnDropdown.changed = false;
-                turnDropdown.turn = "-";
+                dropdown.setChanged(false);
+                dropdown.setTurn("-");
             }
 
         }

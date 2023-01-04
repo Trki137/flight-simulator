@@ -410,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avion: {fileID: 588453582553493895}
   canvas: {fileID: 1893310938890675279}
+  dropdown: {fileID: 4293118457968683934}
 --- !u!96 &2149212276806334801
 TrailRenderer:
   serializedVersion: 2
@@ -1315,6 +1316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8921d26cd649eaf44bdc95731db51846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  num: 0
+  turn: 
+  changed: 0
 --- !u!1 &3680106013469906974
 GameObject:
   m_ObjectHideFlags: 0

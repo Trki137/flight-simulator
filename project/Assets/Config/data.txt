@@ -1,7 +1,19 @@
-[2023.03.45-20:45:23:104] Naviagtion point 1 is at position (2.939875,3.405535)
-[2023.03.45-20:45:23:104] Naviagtion point 2 is at position (7.561481,-0.123964)
-[2023.03.45-20:45:23:104] Naviagtion point 3 is at position (-5.912599,-0.07757354)
-[2023.03.45-20:45:23:104] Naviagtion point 4 is at position (-2.313684,1.171817)
-[2023.03.45-20:45:23:104] Naviagtion point 5 is at position (1.435157,1.337029)
-[2023.03.45-20:45:23:104] Screen height is 415 pixels
-[2023.03.45-20:45:23:104] Screen width is 905 pixels
+[2023.04.48-19:48:49:874] Naviagtion point 1 is at position (5.22225,0.04415572)
+[2023.04.48-19:48:49:874] Naviagtion point 2 is at position (4.527487,-3.120405)
+[2023.04.48-19:48:49:874] Naviagtion point 3 is at position (-1.339379,-2.007908)
+[2023.04.48-19:48:49:874] Naviagtion point 4 is at position (-5.366076,3.362769)
+[2023.04.48-19:48:49:874] Naviagtion point 5 is at position (1.146262,1.0268)
+[2023.04.48-19:48:49:874] Screen height is 406 pixels
+[2023.04.48-19:48:49:874] Screen width is 910 pixels
+[2023.04.48-19:48:53:020] You clicked on HR 8476
+[2023.04.48-19:48:56:957] You clicked on HR 8476
+[2023.04.48-19:48:57:479] You clicked on HR 8476
+[2023.04.48-19:48:59:614] You clicked on HR 8476
+[2023.04.49-19:49:00:175] You clicked on HR 8476
+[2023.04.49-19:49:02:608] You clicked on HR 8476
+[2023.04.49-19:49:03:226] You clicked on HR 8476
+[2023.04.49-19:49:05:336] You clicked on HR 8476
+[2023.04.49-19:49:06:122] You clicked on HR 8476
+[2023.04.49-19:49:13:256] You clicked on HR 8177
+[2023.04.49-19:49:14:751] You clicked on HR 8177
+[2023.04.49-19:49:15:327] You clicked on HR 8177
