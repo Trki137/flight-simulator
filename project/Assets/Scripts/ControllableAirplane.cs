@@ -8,6 +8,8 @@ public class ControllableAirplane : MonoBehaviour
 
     private Rigidbody2D myBody;
 
+    private Timer timer;
+
     private int numOfNavPoints;
 
     public GameObject avion;
@@ -52,6 +54,9 @@ public class ControllableAirplane : MonoBehaviour
         G = GameObject.Find("Config");
         configFile = G.GetComponent<ReadConfigFile>();
 
+        G = GameObject.Find("Timer");
+        timer = G.GetComponent<Timer>();
+
         canvas.SetActive(false);
 
     }
@@ -64,6 +69,28 @@ public class ControllableAirplane : MonoBehaviour
 
     void Update()
     {
+
+        move();
+        checkTimer();
+    }
+
+    private void checkTimer() {
+
+        if (timer.getRemaining() < 0) {
+                
+            myObject.writeLog(string.Format("[{0}] Airplane {1} is at position ({2},{3}).",Timer.dateTime,airplaneName, myBody.transform.position.x, myBody.transform.position.y));
+
+            Timer.timesWritten++;
+            if (Timer.timesWritten == configFile.getNumOfControllablePlains()) {
+                Timer.timesWritten = 0;
+                timer.setTimeRemaining(5.0f);
+            }
+        }
+    
+    }
+
+
+    private void move() {
 
         if (dropdown.getChanged())
         {
@@ -122,7 +149,7 @@ public class ControllableAirplane : MonoBehaviour
     {       
             GameObject T = avion.transform.GetChild(0).gameObject;
             TextMesh tekst = T.GetComponent<TextMesh>();
-            string dateTime = System.DateTime.Now.ToString("yyyy.dd.mm-HH:mm:ss:fff");
+            string dateTime = System.DateTime.Now.ToString("yyyy.dd.MM-HH:mm:ss:fff");
             string log = string.Format("[{0}] You clicked on {1}", dateTime,tekst.text);
             myObject.writeLog(log);
 
@@ -188,7 +215,7 @@ public class ControllableAirplane : MonoBehaviour
         if (coliderCounter.getDestroyedAirplanes() == configFile.getNumOfControllablePlains())
         {
             Application.Quit();
-            string dateTime = System.DateTime.Now.ToString("yyyy.dd.mm-HH:mm:ss:fff");
+            string dateTime = System.DateTime.Now.ToString("yyyy.dd.MM-HH:mm:ss:fff");
             string log = string.Format("[{0}] Simulation finished, total number of collides is {1} ", dateTime, coliderCounter.getCounter());
             myObject.writeLog(log);
             UnityEditor.EditorApplication.isPlaying = false;

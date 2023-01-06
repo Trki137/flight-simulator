@@ -10,7 +10,7 @@ public class navPoints : MonoBehaviour
 public int brojNavTocaka;
 public GameObject prefab;
 
-private string dateTime = System.DateTime.Now.ToString("yyyy.dd.mm-HH:mm:ss:fff");
+private string dateTime = System.DateTime.Now.ToString("yyyy.dd.MM-HH:mm:ss:fff");
 
 private Vector2 pozicija;
 

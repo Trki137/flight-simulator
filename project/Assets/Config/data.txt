@@ -1,19 +1,27 @@
-[2023.04.48-19:48:49:874] Naviagtion point 1 is at position (5.22225,0.04415572)
-[2023.04.48-19:48:49:874] Naviagtion point 2 is at position (4.527487,-3.120405)
-[2023.04.48-19:48:49:874] Naviagtion point 3 is at position (-1.339379,-2.007908)
-[2023.04.48-19:48:49:874] Naviagtion point 4 is at position (-5.366076,3.362769)
-[2023.04.48-19:48:49:874] Naviagtion point 5 is at position (1.146262,1.0268)
-[2023.04.48-19:48:49:874] Screen height is 406 pixels
-[2023.04.48-19:48:49:874] Screen width is 910 pixels
-[2023.04.48-19:48:53:020] You clicked on HR 8476
-[2023.04.48-19:48:56:957] You clicked on HR 8476
-[2023.04.48-19:48:57:479] You clicked on HR 8476
-[2023.04.48-19:48:59:614] You clicked on HR 8476
-[2023.04.49-19:49:00:175] You clicked on HR 8476
-[2023.04.49-19:49:02:608] You clicked on HR 8476
-[2023.04.49-19:49:03:226] You clicked on HR 8476
-[2023.04.49-19:49:05:336] You clicked on HR 8476
-[2023.04.49-19:49:06:122] You clicked on HR 8476
-[2023.04.49-19:49:13:256] You clicked on HR 8177
-[2023.04.49-19:49:14:751] You clicked on HR 8177
-[2023.04.49-19:49:15:327] You clicked on HR 8177
+[2023.06.01-14:29:02:822] Naviagtion point 1 is at position (6.130457,2.201501)
+[2023.06.01-14:29:02:822] Naviagtion point 2 is at position (7.794435,-1.500369)
+[2023.06.01-14:29:02:822] Naviagtion point 3 is at position (-5.35466,-3.0528)
+[2023.06.01-14:29:02:822] Naviagtion point 4 is at position (-2.219955,0.2289593)
+[2023.06.01-14:29:02:822] Naviagtion point 5 is at position (4.578707,1.46255)
+[2023.06.01-14:29:02:822] Screen height is 406 pixels
+[2023.06.01-14:29:02:822] Screen width is 668 pixels
+[2023.06.01-14:29:08:628] Airplane HR 7930 is at position (7.077252,-3.095206).
+[2023.06.01-14:29:08:628] Airplane HR 3945 is at position (0.1057186,0.0003074706).
+[2023.06.01-14:29:08:628] Airplane HR 9709 is at position (6.852599,2.596641).
+[2023.06.01-14:29:08:628] Airplane HR 5670 is at position (-2.168001,-0.5249698).
+[2023.06.01-14:29:08:628] Airplane HR 4346 is at position (-1.034895,-0.5047496).
+[2023.06.01-14:29:13:629] Airplane HR 7930 is at position (5.908487,-2.585663).
+[2023.06.01-14:29:13:629] Airplane HR 3945 is at position (1.380725,0.003383845).
+[2023.06.01-14:29:13:629] Airplane HR 9709 is at position (5.659877,2.146133).
+[2023.06.01-14:29:13:629] Airplane HR 5670 is at position (-0.9295413,-0.2219862).
+[2023.06.01-14:29:13:629] Airplane HR 4346 is at position (0.1062092,0.06404367).
+[2023.06.01-14:29:18:632] Airplane HR 7930 is at position (4.739719,-2.076117).
+[2023.06.01-14:29:18:632] Airplane HR 3945 is at position (2.655728,0.006460279).
+[2023.06.01-14:29:18:632] Airplane HR 9709 is at position (4.467148,1.695622).
+[2023.06.01-14:29:18:632] Airplane HR 5670 is at position (0.3089503,0.08102436).
+[2023.06.01-14:29:18:632] Airplane HR 4346 is at position (1.247317,0.6328457).
+[2023.06.01-14:29:23:634] Airplane HR 7930 is at position (3.570959,-1.566548).
+[2023.06.01-14:29:23:634] Airplane HR 3945 is at position (3.930709,0.009536311).
+[2023.06.01-14:29:23:634] Airplane HR 9709 is at position (3.274385,1.245114).
+[2023.06.01-14:29:23:634] Airplane HR 5670 is at position (1.547431,0.3840325).
+[2023.06.01-14:29:23:634] Airplane HR 4346 is at position (2.388425,1.201646).
