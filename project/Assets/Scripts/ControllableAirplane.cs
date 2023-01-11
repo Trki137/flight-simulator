@@ -15,6 +15,7 @@ public class ControllableAirplane : MonoBehaviour
     public GameObject avion;
 
     public GameObject canvas;
+    public GameObject nameHolder;
 
     private const string NAVIGATION_POINT = "navTocka";
 
@@ -36,6 +37,7 @@ public class ControllableAirplane : MonoBehaviour
     private bool travel = true;
 
     private string airplaneName;
+    
 
     void Start()
     {
@@ -69,7 +71,6 @@ public class ControllableAirplane : MonoBehaviour
 
     void Update()
     {
-
         move();
         checkTimer();
     }
@@ -114,7 +115,8 @@ public class ControllableAirplane : MonoBehaviour
                     anglesTravelled += Time.deltaTime * turnSpeed;
                     myBody.transform.localEulerAngles += new Vector3(0f, 0f, -Time.deltaTime * turnSpeed);
                     myBody.transform.Translate(transform.up * speed * Time.deltaTime);
-
+                    canvas.transform.rotation = Quaternion.identity;
+                    nameHolder.transform.rotation = Quaternion.identity;
                     //stariNum = turnDropdown.num;
                 }
                 else
@@ -122,11 +124,15 @@ public class ControllableAirplane : MonoBehaviour
                     anglesTravelled += Time.deltaTime * turnSpeed;
                     myBody.transform.localEulerAngles -= new Vector3(0f, 0f, -Time.deltaTime * turnSpeed);
                     myBody.transform.Translate(transform.up * speed * Time.deltaTime);
+                    canvas.transform.rotation = Quaternion.identity;
+                    nameHolder.transform.rotation = Quaternion.identity;
                 }
             }
             else
             {
                 myBody.transform.Translate(Vector3.up * speed * Time.deltaTime);
+                canvas.transform.rotation = Quaternion.identity;
+                nameHolder.transform.rotation = Quaternion.identity;
             }
 
             if (Mathf.Abs(anglesTravelled) > dropdown.getNum())
@@ -136,12 +142,16 @@ public class ControllableAirplane : MonoBehaviour
                 myBody.transform.Translate(transform.up * speed * Time.deltaTime);
                 dropdown.setChanged(false);
                 dropdown.setTurn("-");
+                canvas.transform.rotation = Quaternion.identity;
+                nameHolder.transform.rotation = Quaternion.identity;
             }
 
         }
         else
         {
             myBody.transform.Translate(Vector3.up * speed * Time.deltaTime);
+            canvas.transform.rotation = Quaternion.identity;
+            nameHolder.transform.rotation = Quaternion.identity;
         }
     }
 

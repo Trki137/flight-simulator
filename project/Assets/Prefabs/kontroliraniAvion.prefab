@@ -298,7 +298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588453582553493895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.948862, y: -2.9647279, z: -8.833569}
+  m_LocalPosition: {x: -5.75, y: -3.72, z: -8.833569}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -410,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avion: {fileID: 588453582553493895}
   canvas: {fileID: 1893310938890675279}
+  nameHolder: {fileID: 8544114788907982234}
   dropdown: {fileID: 4293118457968683934}
 --- !u!96 &2149212276806334801
 TrailRenderer:
@@ -789,7 +790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.188, y: -1.1180003}
+  m_AnchoredPosition: {x: 3.02, y: 0.01}
   m_SizeDelta: {x: 1.8098, y: 0.3296}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &377425209841613838
@@ -3223,14 +3224,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8544114788907982234}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.1, y: 0.55, z: -0.011072159}
-  m_LocalScale: {x: 0.065979995, y: 0.065979995, z: 0.032989997}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0026127824, w: 0.9999966}
+  m_LocalPosition: {x: -0.57, y: 1.18, z: -0.011072159}
+  m_LocalScale: {x: 0.065979995, y: 0.06598001, z: 0.032989997}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1437507585217530024}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.299}
 --- !u!23 &8670684341209190053
 MeshRenderer:
   m_ObjectHideFlags: 0

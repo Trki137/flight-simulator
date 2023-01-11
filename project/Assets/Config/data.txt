@@ -1,3 +1,4 @@
+@ -1,27 +0,0 @@
 [2023.06.01-14:29:02:822] Naviagtion point 1 is at position (6.130457,2.201501)
 [2023.06.01-14:29:02:822] Naviagtion point 2 is at position (7.794435,-1.500369)
 [2023.06.01-14:29:02:822] Naviagtion point 3 is at position (-5.35466,-3.0528)
