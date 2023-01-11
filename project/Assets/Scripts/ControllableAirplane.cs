@@ -48,6 +48,19 @@ public class ControllableAirplane : MonoBehaviour
     private int nextPointIndex;
 
     private int orderIndex;
+
+    private float x;
+    private float y;
+
+    private Vector3 mDirection;
+
+
+    private float fi;
+     private float xNovi;
+    private float yNovi;
+
+    private float xStari;
+    private float yStari;
     
 
     void Start()
@@ -80,6 +93,8 @@ public class ControllableAirplane : MonoBehaviour
 
         navPointsPosition =navPoints.getAllNavPositions();
 
+        myObject.writeLog(string.Format("[{0}] Airplane {1} is at position ({2},{3}) in direction {4}.",Timer.dateTime,airplaneName, myBody.transform.position.x, myBody.transform.position.y,mDirection));
+
     }
 
 
@@ -98,7 +113,21 @@ public class ControllableAirplane : MonoBehaviour
 
         if (timer.getRemaining() < 0) {
                 
-            myObject.writeLog(string.Format("[{0}] Airplane {1} is at position ({2},{3}).",Timer.dateTime,airplaneName, myBody.transform.position.x, myBody.transform.position.y));
+                        if(dropdown.getNum() != 0) {
+                  xNovi=Mathf.Abs(Mathf.Cos(dropdown.getNum()*Mathf.PI/180));
+                 yNovi=Mathf.Abs(Mathf.Sin(dropdown.getNum()*Mathf.PI/180)); 
+                 xStari = myBody.transform.position.x;
+                 yStari = myBody.transform.position.y;
+                 float duljinaNovi = Mathf.Sqrt(xNovi*xNovi + yNovi*yNovi);
+                 float duljinaStari = Mathf.Sqrt(xStari*xStari + yStari*yStari);
+                 fi =  Mathf.Acos((xNovi * xStari + yNovi * yStari)/(duljinaNovi*duljinaStari));
+                 x = Mathf.Abs(Mathf.Cos(fi));
+                 y = Mathf.Abs(Mathf.Sin(fi));
+                mDirection = new Vector3(x, y, 0);
+                myObject.writeLog(string.Format("[{0}] Airplane {1} is at position ({2},{3}) in direction {4}.",Timer.dateTime,airplaneName, myBody.transform.position.x, myBody.transform.position.y, mDirection));
+            }else{
+                 myObject.writeLog(string.Format("[{0}] Airplane {1} is at position ({2},{3}) in direction {4}.",Timer.dateTime,airplaneName, myBody.transform.position.x, myBody.transform.position.y,mDirection));
+            }
 
             Timer.timesWritten++;
             if (Timer.timesWritten == configFile.getNumOfControllablePlains()) {
@@ -266,6 +295,10 @@ public class ControllableAirplane : MonoBehaviour
 
     public void setName(string name) {
         airplaneName = name;
+    }
+
+    public void setDirection(Vector3 mDirection){
+        this.mDirection = mDirection;
     }
 
 }

@@ -55,8 +55,10 @@ public class ControllableAirplaneSpawner : MonoBehaviour
         ControllableAirplane airplaneScript = airplane.GetComponent<ControllableAirplane>();
         airplaneScript.name = airplaneName;
         airplaneScript.setName(airplaneName);
-
+        airplaneScript.setDirection(gameArea.transform.position - position);
         airplaneScript.setOrder(configFile.getOrderForIndex(index));
+
+        //ControllableAirplane.myObject.writeLog(string.Format("[{0}] Airplane {1} is at position ({2},{3}) in direction {4}.",Timer.dateTime,airplaneName, ControllableAirplane.myBody.transform.position.x, ControllableAirplane.myBody.transform.position.y, direction));
 
 
     }

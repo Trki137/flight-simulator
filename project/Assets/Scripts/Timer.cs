@@ -9,8 +9,12 @@ public class Timer : MonoBehaviour
     public static string dateTime;
     private bool dateWritten = false;
 
+    void Start(){
+        dateTime = System.DateTime.Now.ToString("yyyy.dd.MM-HH:mm:ss:fff");
+    }
     void Update()
     {
+
         timeRemaining -= Time.deltaTime;
         if (timeRemaining < 0 && !dateWritten){
             dateTime = System.DateTime.Now.ToString("yyyy.dd.MM-HH:mm:ss:fff");
