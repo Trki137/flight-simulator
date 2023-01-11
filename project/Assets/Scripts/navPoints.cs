@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,17 +8,20 @@ public class navPoints : MonoBehaviour
     [SerializeField]
     private WriteData writeLog;
 
-public int brojNavTocaka;
-public GameObject prefab;
+    public int brojNavTocaka;
+    
+    public GameObject prefab;
 
-private string dateTime = System.DateTime.Now.ToString("yyyy.dd.MM-HH:mm:ss:fff");
+    private string dateTime = System.DateTime.Now.ToString("yyyy.dd.MM-HH:mm:ss:fff");
 
-private Vector2 pozicija;
+    private Vector2 pozicija;
 
+    private List<Vector2> positionOfAllNavPoints;
     // Start is called before the first frame update
     void Start()
     {
-   stvoriNavTocke();
+            positionOfAllNavPoints = new List<Vector2>();
+            stvoriNavTocke();
 
             string log = string.Format("[{0}] Screen height is {1} pixels\n[{2}] Screen width is {3} pixels", dateTime,Screen.height,dateTime,Screen.width);
             writeLog.writeLog(log);
@@ -58,10 +62,16 @@ private Vector2 pozicija;
             TextMesh tekst = T.GetComponent<TextMesh>();
             tekst.text+=i.ToString();
 
-            string log = string.Format("[{0}] Naviagtion point {1} is at position ({2},{3})", dateTime ,i + 1, pozicija.x, pozicija.y);
+            string log = string.Format("[{0}] Navigation point {1} is at position ({2},{3})", dateTime ,i + 1, pozicija.x, pozicija.y);
             writeLog.writeLog(log);
 
+            positionOfAllNavPoints.Add(pozicija);
+
          }  
+    }
+
+    public List<Vector2> getAllNavPositions() {
+        return positionOfAllNavPoints;
     }
 
 }

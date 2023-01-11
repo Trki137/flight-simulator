@@ -17,7 +17,7 @@ public class ControllableAirplaneSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         for (int i = 0; i < configFile.getNumOfControllablePlains() ; i++) 
-            InstantianteAirplane(GetRandomPosition());
+            InstantianteAirplane(GetRandomPosition(),i);
     }
 
     Vector3 GetRandomPosition()
@@ -34,7 +34,7 @@ public class ControllableAirplaneSpawner : MonoBehaviour
         return position;
     }
 
-    private void InstantianteAirplane(Vector3 position)
+    private void InstantianteAirplane(Vector3 position,int index)
     {
 
        GameObject airplane = Instantiate(
@@ -56,7 +56,7 @@ public class ControllableAirplaneSpawner : MonoBehaviour
         airplaneScript.name = airplaneName;
         airplaneScript.setName(airplaneName);
 
-
+        airplaneScript.setOrder(configFile.getOrderForIndex(index));
 
 
     }

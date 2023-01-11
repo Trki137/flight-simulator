@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ControllableAirplane : MonoBehaviour
 {
@@ -37,6 +38,16 @@ public class ControllableAirplane : MonoBehaviour
     private bool travel = true;
 
     private string airplaneName;
+
+    private int[] order;
+        
+   private navPoints navPoints;
+
+    private List<Vector2> navPointsPosition;
+
+    private int nextPointIndex;
+
+    private int orderIndex;
     
 
     void Start()
@@ -60,6 +71,14 @@ public class ControllableAirplane : MonoBehaviour
         timer = G.GetComponent<Timer>();
 
         canvas.SetActive(false);
+
+        orderIndex = 0;
+        nextPointIndex = order[orderIndex] - 1;
+
+	    G = GameObject.Find("navPoints");
+        navPoints = G.GetComponent<navPoints>();
+
+        navPointsPosition =navPoints.getAllNavPositions();
 
     }
 
@@ -172,12 +191,17 @@ public class ControllableAirplane : MonoBehaviour
 
 
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(NAVIGATION_POINT))
         {
-            GameObject T = collision.transform.GetChild(0).gameObject;
-            TextMesh tekst = T.GetComponent<TextMesh>();
+ 		    Vector2 airplanePosition = new Vector2(myBody.transform.position.x, myBody.transform.position.y);
+            Vector2 nextNavPointDirection = navPointsPosition[nextPointIndex];
+
+            double distance = Mathf.Sqrt(Mathf.Pow(airplanePosition.x - nextNavPointDirection.x, 2) + Mathf.Pow(airplanePosition.y - nextNavPointDirection.y, 2));
+
+            if (distance > 1) return;
 
             numOfNavPoints++;
             gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 0);
@@ -220,6 +244,9 @@ public class ControllableAirplane : MonoBehaviour
         {
             Destroy(avion);
             coliderCounter.increaseDestroyedAirplanes();
+        }else {
+            orderIndex++;
+            nextPointIndex = order[orderIndex] - 1;
         }
 
         if (coliderCounter.getDestroyedAirplanes() == configFile.getNumOfControllablePlains())
@@ -230,6 +257,11 @@ public class ControllableAirplane : MonoBehaviour
             myObject.writeLog(log);
             UnityEditor.EditorApplication.isPlaying = false;
         }
+    }
+
+    public void setOrder(int[] order)
+    {
+        this.order = order;
     }
 
     public void setName(string name) {
