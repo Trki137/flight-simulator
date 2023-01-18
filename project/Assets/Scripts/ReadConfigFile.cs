@@ -14,6 +14,8 @@ public class ReadConfigFile : MonoBehaviour
 
     private int numOfControllablePlains;
 
+    private int numOfUncontrollablePlains;
+
     private List<int[]> navigationOrder;
 
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class ReadConfigFile : MonoBehaviour
     {
         ReadTextConfig();
         numOfControllablePlains = parseNumOfControllablePlains();
+        numOfUncontrollablePlains = parseNumOfUncontrollablePlains();
         numOfNavPoints = parseNumOfNavPoints();
         navigationOrder = getNavigationOrder();
     }
@@ -33,10 +36,10 @@ public class ReadConfigFile : MonoBehaviour
     private List<int[]> getNavigationOrder() {
         List<int[]> navigationOrder = new List<int[]>();
 
-        if (numOfControllablePlains != lines.Length - 2)
+        if (numOfControllablePlains != lines.Length - 3)
             throw new System.Exception("Configuration file in invalid format. Every airplain has to have navigation point order");
 
-        for (int start = 2; start < lines.Length; start++) {
+        for (int start = 3; start < lines.Length; start++) {
             string[] navigationNumbers = lines[start].Split(new string[] { "," }, System.StringSplitOptions.None);
 
             int[] order = new int[numOfNavPoints];
@@ -80,6 +83,20 @@ public class ReadConfigFile : MonoBehaviour
         return 0;
     }
 
+    private int parseNumOfUncontrollablePlains()
+    {
+
+        for (int i = 0; i < lines.Length; i++)
+        {
+            if (lines[i].Contains("redAirplanes"))
+            {
+                return parse(lines[i]);
+            }
+        }
+
+        return 0;
+    }
+
     private int parse(string value) 
     { 
         return int.Parse(value.Substring(value.IndexOf("=") + 1));
@@ -99,6 +116,10 @@ public class ReadConfigFile : MonoBehaviour
     public string[] getLines()
     {
         return lines;
+    }
+
+    public int getNumOfUncontrollablePlains() {
+        return numOfUncontrollablePlains;
     }
 
     public int[] getOrderForIndex(int index) {

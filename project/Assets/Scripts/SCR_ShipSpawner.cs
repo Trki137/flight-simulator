@@ -4,11 +4,14 @@ using UnityEngine;
  
 public class SCR_ShipSpawner : MonoBehaviour
 {
+    [SerializeField]
+    private ReadConfigFile configFile;
+
     public GameObject game_area;
     public GameObject ship_prefab;
  
     public int ship_count = 0;
-    public int ship_limit = 150;
+    private int ship_limit;
     public int ships_per_frame = 1;
  
     public float spawn_circle_radius = 80.0f;
@@ -16,10 +19,11 @@ public class SCR_ShipSpawner : MonoBehaviour
  
     public float fastest_speed = 12.0f;
     public float slowest_speed = 0.75f;
- 
-    void Start()
+
+    IEnumerator Start()
     {
-      /*  InitialPopulation();*/
+        yield return new WaitForSeconds(1);
+        ship_limit = configFile.getNumOfUncontrollablePlains();
     }
  
     void Update()
@@ -27,23 +31,9 @@ public class SCR_ShipSpawner : MonoBehaviour
         MaintainPopulation();
     }
  
-   /* void InitialPopulation()
-    {
-        /** To avoid having to wait for the ships to enter the screen at start up, create an
-        initial set of ships for instant action. **/
- 
-      /*  for(int i=0; i<ship_limit; i++)
-        {
-            Vector3 position = GetRandomPosition(true);
-            SCR_Ship ship_script = AddShip(position);
-            ship_script.transform.Rotate(Vector3.forward * Random.Range(0.0f, 360.0f));
-        }
-    }*/
  
     void MaintainPopulation()
     {
-        /** Create more ships as old ones are destroyed, while respecting the object limit. **/
- 
         if(ship_count < ship_limit)
         {
             for(int i=0; i<ships_per_frame; i++)
@@ -57,7 +47,6 @@ public class SCR_ShipSpawner : MonoBehaviour
  
     Vector3 GetRandomPosition(bool within_camera)
     {
-        /** Get a random spawn position, using a 2D circle around the game area. **/
  
         Vector3 position = Random.insideUnitCircle;
  

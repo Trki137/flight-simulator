@@ -294,10 +294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e9aecf34271aa46bd0ede005fbd61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  configFile: {fileID: 1389325015}
   game_area: {fileID: 1259093000}
   ship_prefab: {fileID: 8849465659271101364, guid: 9bd2929a0408a314085a65cdf57e2d7e, type: 3}
   ship_count: 0
-  ship_limit: 10
   ships_per_frame: 1
   spawn_circle_radius: 13
   death_circle_radius: 14
