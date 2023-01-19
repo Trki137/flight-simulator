@@ -12,9 +12,9 @@ public class ReadConfigFile : MonoBehaviour
 
     private int numOfNavPoints;
 
-    private int numOfControllablePlains;
+    private int numOfControllablePlanes;
 
-    private int numOfUncontrollablePlains;
+    private int numOfUncontrollablePlanes;
 
     private List<int[]> navigationOrder;
 
@@ -22,8 +22,8 @@ public class ReadConfigFile : MonoBehaviour
     void Start()
     {
         ReadTextConfig();
-        numOfControllablePlains = parseNumOfControllablePlains();
-        numOfUncontrollablePlains = parseNumOfUncontrollablePlains();
+        numOfControllablePlanes = parseNumOfControllablePlanes();
+        numOfUncontrollablePlanes = parseNumOfUncontrollablePlanes();
         numOfNavPoints = parseNumOfNavPoints();
         navigationOrder = getNavigationOrder();
     }
@@ -36,7 +36,7 @@ public class ReadConfigFile : MonoBehaviour
     private List<int[]> getNavigationOrder() {
         List<int[]> navigationOrder = new List<int[]>();
 
-        if (numOfControllablePlains != lines.Length - 3)
+        if (numOfControllablePlanes != lines.Length - 3)
             throw new System.Exception("Configuration file in invalid format. Every airplain has to have navigation point order");
 
         for (int start = 3; start < lines.Length; start++) {
@@ -70,11 +70,11 @@ public class ReadConfigFile : MonoBehaviour
         return 0;
     }
 
-    private int parseNumOfControllablePlains() {
+    private int parseNumOfControllablePlanes() {
 
         for (int i = 0; i < lines.Length; i++)
         {
-            if (lines[i].Contains("controllableAirplains"))
+            if (lines[i].Contains("controllableAirplanes"))
             {
                 return parse(lines[i]);
             }
@@ -83,7 +83,7 @@ public class ReadConfigFile : MonoBehaviour
         return 0;
     }
 
-    private int parseNumOfUncontrollablePlains()
+    private int parseNumOfUncontrollablePlanes()
     {
 
         for (int i = 0; i < lines.Length; i++)
@@ -107,9 +107,9 @@ public class ReadConfigFile : MonoBehaviour
         return numOfNavPoints;
     }
 
-    public int getNumOfControllablePlains() 
+    public int getNumOfControllablePlanes() 
     {
-        return numOfControllablePlains;
+        return numOfControllablePlanes;
     }
 
 
@@ -118,8 +118,8 @@ public class ReadConfigFile : MonoBehaviour
         return lines;
     }
 
-    public int getNumOfUncontrollablePlains() {
-        return numOfUncontrollablePlains;
+    public int getNumOfUncontrollablePlanes() {
+        return numOfUncontrollablePlanes;
     }
 
     public int[] getOrderForIndex(int index) {

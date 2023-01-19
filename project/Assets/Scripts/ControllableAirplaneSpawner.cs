@@ -16,7 +16,7 @@ public class ControllableAirplaneSpawner : MonoBehaviour
     IEnumerator Start()
     {
         yield return new WaitForSeconds(1);
-        for (int i = 0; i < configFile.getNumOfControllablePlains() ; i++) 
+        for (int i = 0; i < configFile.getNumOfControllablePlanes() ; i++) 
             InstantianteAirplane(GetRandomPosition(),i);
     }
 

@@ -1,5 +1,5 @@
 navPoints=5
-controllableAirplains=3
+controllableAirplanes=3
 redAirplanes=2
 1,2,3,4,5
 1,2,3,4,5

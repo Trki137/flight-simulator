@@ -23,7 +23,7 @@ public class SCR_ShipSpawner : MonoBehaviour
     IEnumerator Start()
     {
         yield return new WaitForSeconds(1);
-        ship_limit = configFile.getNumOfUncontrollablePlains();
+        ship_limit = configFile.getNumOfUncontrollablePlanes();
     }
  
     void Update()

@@ -1,13 +1,13 @@
-[2023.18.01-21:24:21:798] Navigation point 1 is at position (1.964392,0.8790824)
-[2023.18.01-21:24:21:798] Navigation point 2 is at position (2.973147,-2.682564)
-[2023.18.01-21:24:21:798] Navigation point 3 is at position (-2.026683,-3.187416)
-[2023.18.01-21:24:21:798] Navigation point 4 is at position (-1.836296,1.656694)
-[2023.18.01-21:24:21:798] Navigation point 5 is at position (1.05239,0.2381334)
-[2023.18.01-21:24:21:798] Screen height is 415 pixels
-[2023.18.01-21:24:21:798] Screen width is 786 pixels
-[2023.18.01-21:24:21:959] Airplane HR 4546 is at position (0.07754421,2.280562) in direction (-0.10, -2.28, 0.00).
-[2023.18.01-21:24:21:959] Airplane HR 8935 is at position (-0.2261086,-2.453627) in direction (0.20, 2.45, 0.00).
-[2023.18.01-21:24:21:959] Airplane HR 8099 is at position (-6.000093,-1.968722) in direction (5.98, 1.97, 0.00).
-[2023.18.01-21:24:27:601] Airplane HR 4546 is at position (0.03314734,1.266641) in direction (-0.10, -2.28, 0.00).
-[2023.18.01-21:24:27:601] Airplane HR 8935 is at position (-0.1420979,-1.442194) in direction (0.20, 2.45, 0.00).
-[2023.18.01-21:24:27:601] Airplane HR 8099 is at position (-5.036088,-1.651239) in direction (5.98, 1.97, 0.00).
+[2023.19.01-21:13:23:995] Navigation point 1 is at position (1.455153,1.540713)
+[2023.19.01-21:13:23:995] Navigation point 2 is at position (7.194113,-0.7955022)
+[2023.19.01-21:13:23:995] Navigation point 3 is at position (-0.466033,-2.92683)
+[2023.19.01-21:13:23:995] Navigation point 4 is at position (-4.315292,1.898217)
+[2023.19.01-21:13:23:995] Navigation point 5 is at position (3.820813,2.03735)
+[2023.19.01-21:13:23:995] Screen height is 415 pixels
+[2023.19.01-21:13:23:995] Screen width is 786 pixels
+[2023.19.01-21:13:24:113] Airplane HR 6834 is at position (5.935181,1.342649) in direction (-5.96, -1.34, 0.00).
+[2023.19.01-21:13:24:113] Airplane HR 8699 is at position (5.628124,2.628372) in direction (-5.65, -2.63, 0.00).
+[2023.19.01-21:13:24:113] Airplane HR 8201 is at position (-9.02738,2.135048) in direction (9.01, -2.14, 0.00).
+[2023.19.01-21:13:29:673] Airplane HR 6834 is at position (4.945134,1.119529) in direction (-5.96, -1.34, 0.00).
+[2023.19.01-21:13:29:673] Airplane HR 8699 is at position (4.70796,2.200327) in direction (-5.65, -2.63, 0.00).
+[2023.19.01-21:13:29:673] Airplane HR 8201 is at position (-8.039938,1.900919) in direction (9.01, -2.14, 0.00).

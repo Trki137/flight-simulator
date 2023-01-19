@@ -130,7 +130,7 @@ public class ControllableAirplane : MonoBehaviour
             }
 
             Timer.timesWritten++;
-            if (Timer.timesWritten == configFile.getNumOfControllablePlains()) {
+            if (Timer.timesWritten == configFile.getNumOfControllablePlanes()) {
                 Timer.timesWritten = 0;
                 timer.setTimeRemaining(5.0f);
             }
@@ -278,7 +278,7 @@ public class ControllableAirplane : MonoBehaviour
             nextPointIndex = order[orderIndex] - 1;
         }
 
-        if (coliderCounter.getDestroyedAirplanes() == configFile.getNumOfControllablePlains())
+        if (coliderCounter.getDestroyedAirplanes() == configFile.getNumOfControllablePlanes())
         {
             Application.Quit();
             string dateTime = System.DateTime.Now.ToString("yyyy.dd.MM-HH:mm:ss:fff");
