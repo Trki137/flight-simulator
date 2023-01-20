@@ -1,0 +1,21 @@
+[2023.20.01-15:52:28:308] Navigation point 1 is at position (5.426718,0.1614861)
+[2023.20.01-15:52:28:308] Navigation point 2 is at position (5.914756,-2.395947)
+[2023.20.01-15:52:28:308] Navigation point 3 is at position (-1.462859,-2.746063)
+[2023.20.01-15:52:28:308] Navigation point 4 is at position (-4.988568,1.052103)
+[2023.20.01-15:52:28:308] Navigation point 5 is at position (3.607495,3.242779)
+[2023.20.01-15:52:28:308] Screen height is 472 pixels
+[2023.20.01-15:52:28:308] Screen width is 1147 pixels
+[2023.20.01-15:52:28:532] Airplane HR 1056 is at position (10.44771,-0.414434) in direction (-10.47, 0.41, 0.00).
+[2023.20.01-15:52:28:532] Airplane HR 2443 is at position (-11.72849,-0.9016305) in direction (11.71, 0.90, 0.00).
+[2023.20.01-15:52:28:532] Airplane HR 3354 is at position (5.213419,-1.384264) in direction (-5.24, 1.38, 0.00).
+[2023.20.01-15:52:33:151] You clicked on HR 2443
+[2023.20.01-15:52:34:837] Airplane HR 1056 is at position (10.04199,-0.3983843) in direction (-10.47, 0.41, 0.00).
+[2023.20.01-15:52:34:837] Airplane HR 2443 is at position (-11.32372,-0.8704712) in direction (11.71, 0.90, 0.00).
+[2023.20.01-15:52:34:837] Airplane HR 3354 is at position (4.820944,-1.280507) in direction (-5.24, 1.38, 0.00).
+[2023.20.01-15:52:34:837] Turn airplane HR 2443 to Left for 40deg.
+[2023.20.01-15:52:39:841] Airplane HR 1056 is at position (9.532258,-0.3782206) in direction (-10.47, 0.41, 0.00).
+[2023.20.01-15:52:39:841] Airplane HR 2443 is at position (-10.82384,-0.8028277) in direction (0.81, 0.58, 0.00).
+[2023.20.01-15:52:39:841] Airplane HR 3354 is at position (4.327874,-1.150157) in direction (-5.24, 1.38, 0.00).
+[2023.20.01-15:52:44:848] Airplane HR 1056 is at position (9.020531,-0.3579781) in direction (-10.47, 0.41, 0.00).
+[2023.20.01-15:52:44:848] Airplane HR 2443 is at position (-10.40467,-0.5250118) in direction (0.80, 0.60, 0.00).
+[2023.20.01-15:52:44:848] Airplane HR 3354 is at position (3.832865,-1.019293) in direction (-5.24, 1.38, 0.00).

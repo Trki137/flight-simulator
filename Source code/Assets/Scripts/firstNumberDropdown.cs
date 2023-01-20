@@ -20,4 +20,8 @@ public class firstNumberDropdown : MonoBehaviour
     {
         dropdownIndex = dropdown.value;
     }
+
+            public void setTurnFirst(string turn) {
+        dropdown.value = 0;
+    }
 }

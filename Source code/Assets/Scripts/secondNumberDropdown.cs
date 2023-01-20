@@ -143,4 +143,9 @@ dropdown = GetComponent<Dropdown>();
         
       
     }
+
+        public void setTurnSecond(string turn) {
+        dropdown.value = 0;
+        dropdown.ClearOptions();
+    }
 }

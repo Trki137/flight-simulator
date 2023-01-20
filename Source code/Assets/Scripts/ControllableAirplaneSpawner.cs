@@ -48,7 +48,7 @@ public class ControllableAirplaneSpawner : MonoBehaviour
         GameObject T = airplane.transform.GetChild(0).gameObject;    
         TextMesh textMesh = T.GetComponent<TextMesh>();
             
-        string airplaneName = "HR " + Random.Range(1000, 9999).ToString();
+        string airplaneName = "HR " + Random.Range((index+1)*1000, ((index+2)*1000)-1).ToString();
 
         textMesh.text = airplaneName;
 

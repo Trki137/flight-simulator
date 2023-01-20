@@ -70,7 +70,8 @@ public class turnDropdown : MonoBehaviour
     }
 
     public void setTurn(string turn) {
-        this.turn = turn;
+        dropdown.value = 0;
+        changed=false;
     }
 
     public string getTurn() {

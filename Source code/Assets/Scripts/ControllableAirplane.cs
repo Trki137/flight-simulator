@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class ControllableAirplane : MonoBehaviour
 {
-    private float speed = 0.005f;
+    private float speed = 0.002f;
 
-    private const float turnSpeed = 12.0f;
+    private const float turnSpeed = 6.0f;
 
     private Rigidbody2D myBody;
 
@@ -32,6 +32,10 @@ public class ControllableAirplane : MonoBehaviour
 
     [SerializeField]
     public turnDropdown dropdown;
+        [SerializeField]
+    public secondNumberDropdown dropdownsecond;
+        [SerializeField]
+    public firstNumberDropdown dropdownfirst;
     
     private float anglesTravelled = 0f;
 
@@ -60,7 +64,10 @@ public class ControllableAirplane : MonoBehaviour
     private float yNovi;
 
     private float xStari;
+
     private float yStari;
+
+    private bool proslo = false;
     
 
     void Start()
@@ -144,6 +151,7 @@ public class ControllableAirplane : MonoBehaviour
         if (dropdown.getChanged())
         {
             travel = true;
+              
         }
 
 
@@ -155,9 +163,17 @@ public class ControllableAirplane : MonoBehaviour
         }
         if (dropdown.getNum() != 0)
         {
+          
 
             if (dropdown.getChanged())
             {
+                if(!proslo) {
+                                GameObject T = avion.transform.GetChild(0).gameObject;
+            TextMesh tekst = T.GetComponent<TextMesh>();
+                myObject.writeLog(string.Format("[{0}] Turn airplane {1} to {2} for {3}deg.",Timer.dateTime,tekst.text ,dropdown.getTurn() ,dropdown.getNum()));
+                  proslo = true;
+                }
+              
                 if (dropdown.getTurn() == "Right")
                 {
                     anglesTravelled += Time.deltaTime * turnSpeed;
@@ -175,6 +191,7 @@ public class ControllableAirplane : MonoBehaviour
                     canvas.transform.rotation = Quaternion.identity;
                     nameHolder.transform.rotation = Quaternion.identity;
                 }
+                
             }
             else
             {
@@ -190,8 +207,11 @@ public class ControllableAirplane : MonoBehaviour
                 myBody.transform.Translate(transform.up * speed * Time.deltaTime);
                 dropdown.setChanged(false);
                 dropdown.setTurn("-");
+                dropdownfirst.setTurnFirst("-");
+                dropdownsecond.setTurnSecond("-");
                 canvas.transform.rotation = Quaternion.identity;
                 nameHolder.transform.rotation = Quaternion.identity;
+                proslo = false;
             }
 
         }
@@ -232,6 +252,10 @@ public class ControllableAirplane : MonoBehaviour
 
             if (distance > 1) return;
 
+            GameObject T = avion.transform.GetChild(0).gameObject;
+            TextMesh tekst = T.GetComponent<TextMesh>();
+                myObject.writeLog(string.Format("[{0}] Airplane {1} passed through nav point {2}.",Timer.dateTime,tekst.text , nextPointIndex+1) );
+
             numOfNavPoints++;
             gameObject.GetComponent<Renderer>().material.color = new Color(0, 1, 0);
 
@@ -241,19 +265,29 @@ public class ControllableAirplane : MonoBehaviour
                 if (collision.gameObject.CompareTag(AIRPLANE_AI))
         {
 
-            GameObject T = collision.transform.GetChild(0).gameObject;
+            GameObject T = avion.transform.GetChild(0).gameObject;
             TextMesh tekst = T.GetComponent<TextMesh>();
+            GameObject T1 = collision.transform.GetChild(0).gameObject;
+            TextMesh tekstTocke = T1.GetComponent<TextMesh>();
 
             gameObject.GetComponent<Renderer>().material.color = new Color(1,0,0);
+
+            myObject.writeLog(string.Format("[{0}] Airplane {1} collided with {2}.",Timer.dateTime,tekst.text , tekstTocke.text) );
 
             coliderCounter.increaseCounter();
         }
 
                 if (collision.gameObject.CompareTag(AIRPLANE_USER))
         {
-
-            GameObject T = collision.transform.GetChild(0).gameObject;
+            
+            GameObject T = avion.transform.GetChild(0).gameObject;
             TextMesh tekst = T.GetComponent<TextMesh>();
+            GameObject T1 = collision.transform.GetChild(0).gameObject;
+            TextMesh tekstTocke = T1.GetComponent<TextMesh>();
+
+            /*GameObject T = collision.transform.GetChild(0).gameObject;
+            TextMesh tekst = T.GetComponent<TextMesh>();*/
+             myObject.writeLog(string.Format("[{0}] Airplane {1} collided with {2}.",Timer.dateTime,tekst.text , tekstTocke.text) );
 
             gameObject.GetComponent<Renderer>().material.color = new Color(1,0,0);
 
@@ -271,6 +305,9 @@ public class ControllableAirplane : MonoBehaviour
     private void checkToDestroy() {
         if (numOfNavPoints == configFile.getNumOfNavPoints())
         {
+            GameObject T = avion.transform.GetChild(0).gameObject;
+            TextMesh tekst = T.GetComponent<TextMesh>();
+            myObject.writeLog(string.Format("[{0}] Airplane {1} passed through all navigation points.",Timer.dateTime,tekst.text) );
             Destroy(avion);
             coliderCounter.increaseDestroyedAirplanes();
         }else {

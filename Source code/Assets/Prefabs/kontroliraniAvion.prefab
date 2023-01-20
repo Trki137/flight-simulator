@@ -412,6 +412,8 @@ MonoBehaviour:
   canvas: {fileID: 1893310938890675279}
   nameHolder: {fileID: 8544114788907982234}
   dropdown: {fileID: 4293118457968683934}
+  dropdownsecond: {fileID: 9154411569534341551}
+  dropdownfirst: {fileID: 9028051245362350760}
 --- !u!96 &2149212276806334801
 TrailRenderer:
   serializedVersion: 2
